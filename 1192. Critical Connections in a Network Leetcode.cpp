@@ -5,7 +5,7 @@
 #include<stack>
 //#include<bits/stdc++.h>
 using namespace std;
-
+//briges in a graph
 class Solution {
 public:
 void dfs(int curr,vector<int>adj[],bool vis[],int dt[],int low[],int time,int parent,  vector<vector<int>>&ans){
