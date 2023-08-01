@@ -6,7 +6,7 @@
 //#include<bits/stdc++.h>
 using namespace std;
 const int N=1e5+10;
-//int n,m;
+int n,m;
 
 
 void dfs(int curr,vector<vector<int>>&adj,vector<int>&dt,vector<int>&low,stack<int>&st,
@@ -28,7 +28,7 @@ void dfs(int curr,vector<vector<int>>&adj,vector<int>&dt,vector<int>&low,stack<i
 	       }
            else {//cross edge -> //already visited but not present in the stack 
            //else if(!instack[child])
-           cout<<"cross edges: "<<curr<<" "<<child<<endl;
+           //cout<<"cross edges: "<<curr<<" "<<child<<endl;
 
            }
 	    }
@@ -57,13 +57,13 @@ void dfs(int curr,vector<vector<int>>&adj,vector<int>&dt,vector<int>&low,stack<i
         //code here
         //tarjan's algorithm-> bridge, articulation point, strongly connected components and 
         // topological sort 
-        vector<int>dt(V,-1);
-        vector<int>low(V,-1);
-        vector<bool>instack(V,false);
+        vector<int>dt(V+1,-1);
+        vector<int>low(V+1,-1);
+        vector<bool>instack(V+1,false);
         stack<int>st;
        
         vector<vector<int>>ans;
-        for(int i=0;i<V;i++){
+        for(int i=1;i<=V;i++){
             if(dt[i]==-1){
                 dfs(i,adj,dt,low,st,instack,ans);
             }
@@ -76,15 +76,16 @@ void dfs(int curr,vector<vector<int>>&adj,vector<int>&dt,vector<int>&low,stack<i
     }
 
 int main(){
-    int n,m;
+    
     cin>>n>>m;
     
-    vector<vector<int>>adj(n);
+    vector<vector<int>>adj(n+1);
   
    for(int i=0;i<m;i++){
         int u,v;
         cin>>u>>v;
         adj[u].push_back(v);
+        adj[v].push_back(u);
         
     }
     

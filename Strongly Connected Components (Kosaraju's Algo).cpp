@@ -11,12 +11,13 @@ int n,m;
 
 void dfs(int node,vector<int>&vis,stack<int>&st,vector<vector<int>>&adj){
         vis[node]=1;
+        //discovery time
         for(auto child:adj[node]){
             if(!vis[child]){
                 dfs(child,vis,st,adj);
             }
         }
-        
+        //finishing time
         st.push(node);
     }
     
