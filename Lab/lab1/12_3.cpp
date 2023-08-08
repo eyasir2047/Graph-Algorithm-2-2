@@ -14,7 +14,7 @@ using namespace std;
 
 using namespace std;
 
-const int N = 1e5+10;
+const int N = 1e4+10;
 vector<int> g[N];
 
 bool vis[N];
